@@ -6,7 +6,7 @@ const searchBoyerMoore = async (req, res) => {
     const checkText = await BoyerMooreService.search(req.body);
     logger.info("Success implement!", {structuredData: true});
     res.status(200).json({ 
-      status: "success",
+      status: 200,
       metadata: checkText 
     });
   } catch (error) {
