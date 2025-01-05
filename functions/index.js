@@ -12,6 +12,7 @@ const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const express = require("express");
 const app = express();
+
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 
@@ -24,6 +25,8 @@ app.get("/greeting", (request, response) => {
   logger.info("Hello logs!", {structuredData: true});
   response.send("Greeting from Firebase Google cloud");
 });
+
+app.use("", require("./src/routes"))
 
 const api = functions.https.onRequest(app);
 
