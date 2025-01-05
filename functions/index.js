@@ -11,10 +11,13 @@ const functions = require("firebase-functions");
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const express = require("express");
+// const { db } = require("./src/configs");
 const app = express();
 
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
+
+// app.use(db)
 
 exports.helloWorld = onRequest((request, response) => {
   logger.info("Hello logs!", {structuredData: true});

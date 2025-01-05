@@ -1,4 +1,20 @@
+const { db } = require("../../configs");
+const { createUUIDV4 } = require("../../utils/uuid");
+
 class BoyerMooreRepository {
+    static async addPartternMatching(
+        pattern,
+        text
+    ) {
+        const UUID = createUUIDV4();
+        const docRef = db.collection("pattern_emulation").doc(UUID);
+        
+        return await docRef.set({
+          pattern: pattern,
+          text: text,
+        });
+    }
+
     static async suffixCase(
         shift,
         borderPosition,

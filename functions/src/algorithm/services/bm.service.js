@@ -1,6 +1,18 @@
 const BoyerMooreRepository = require("../repositories/bm.repository");
 
 class BoyerMooreService {
+    static async addParttern({
+        text,
+        pattern
+    }) {
+        const addPattern = await BoyerMooreRepository.addPartternMatching(text, pattern)
+        if(!addPattern) {
+            throw new Error("Failed add parttern!")
+        }
+        return {
+            result: addPattern
+        }
+    }
     static async search({ text, pattern }) {
         let result = false;
         
